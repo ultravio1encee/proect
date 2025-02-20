@@ -1,4 +1,4 @@
-#include "huffman.h"
+#include "header.h"
 
 Node* getNode(char ch, int freq, Node* left, Node* right) {
     return new Node{ch, freq, left, right};
