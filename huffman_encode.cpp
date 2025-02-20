@@ -1,4 +1,4 @@
-#include "huffman.h"
+#include "header.h"
 
 void encode(Node* root, std::string str, std::unordered_map<char, std::string>& huffmanCode) {
     if (!root) return;
