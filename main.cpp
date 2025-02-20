@@ -1,4 +1,4 @@
-#include "huffman.h"
+#include "header.h"
 
 int main() {
     std::string inputFile = "haffman.txt";
