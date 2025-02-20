@@ -1,4 +1,4 @@
-#include "huffman.h"
+#include "header.h"
 
 void decode(Node* root, int& index, const std::string& str, std::ofstream& out) {
     if (!root) return;
@@ -24,7 +24,7 @@ void decodeFile(const std::string& inputFile, const std::string& outputFile) {
         return;
     }
 
-    // Восстановление таблицы кодов
+    // Г‚Г®Г±Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГҐ ГІГ ГЎГ«ГЁГ¶Г» ГЄГ®Г¤Г®Гў
     std::unordered_map<std::string, char> reverseHuffmanCode;
     int tableSize;
     in >> tableSize;
@@ -39,7 +39,7 @@ void decodeFile(const std::string& inputFile, const std::string& outputFile) {
         reverseHuffmanCode[code] = ch;
     }
 
-    // Чтение закодированного текста
+    // Г—ГІГҐГ­ГЁГҐ Г§Г ГЄГ®Г¤ГЁГ°Г®ГўГ Г­Г­Г®ГЈГ® ГІГҐГЄГ±ГІГ 
     std::string encodedText;
     std::getline(in, encodedText);
     in.close();
@@ -50,7 +50,7 @@ void decodeFile(const std::string& inputFile, const std::string& outputFile) {
         return;
     }
 
-    // Декодирование по таблице
+    // Г„ГҐГЄГ®Г¤ГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ® ГІГ ГЎГ«ГЁГ¶ГҐ
     std::string buffer;
     for (char bit : encodedText) {
         buffer += bit;
