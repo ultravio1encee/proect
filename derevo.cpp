@@ -21,7 +21,14 @@ Node* buildHuffmanTree(const std::string& text) {
         pq.push(getNode(pair.first, pair.second, nullptr, nullptr));
     }
 
-    while (pq.size() != 1) {
+    // Если в файле только один уникальный символ, создаем фиктивный узел
+    if (pq.size() == 1) {
+        Node* left = pq.top(); pq.pop();
+        Node* right = getNode('\0', 0, nullptr, nullptr); // Фиктивный узел
+        return getNode('\0', left->freq + right->freq, left, right);
+    }
+
+    while (pq.size() > 1) {
         Node *left = pq.top(); pq.pop();
         Node *right = pq.top(); pq.pop();
         pq.push(getNode('\0', left->freq + right->freq, left, right));
